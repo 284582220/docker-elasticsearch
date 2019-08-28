@@ -1,0 +1,44 @@
+cluster.name: ${CLUSTER_NAME}
+node.name: ${NODE_NAME}
+node.master: ${NODE_MASTER}
+node.data: ${NODE_DATA}
+path.data: /usr/share/elasticsearch/data
+bootstrap.memory_lock: ${MEMORY_LOCK}
+network.host: ${NETWORK_HOST}
+discovery.zen.ping.unicast.hosts: ${DISCOVERY_SERVICE}
+discovery.zen.minimum_master_nodes: ${NUMBER_OF_MASTERS}
+
+http.cors.enabled: ${HTTP_ENABLE}
+http.cors.allow-origin: "*"
+http.cors.allow-credentials: true
+
+xpack.security.enabled: ${XPACK_SECURITY_ENABLED}
+xpack.ssl.client_authentication: none
+xpack.ssl.verification_mode: none
+xpack.security.transport.ssl.enabled: ${XPACK_SECURITY_TRANSPORT_SSL_ENABLED}
+xpack.security.transport.ssl.client_authentication: none
+xpack.security.transport.ssl.verification_mode: none 
+xpack.security.transport.ssl.keystore.path: /usr/share/elasticsearch/config/certs/elastic-certificates.p12
+xpack.security.transport.ssl.truststore.path: /usr/share/elasticsearch/config/certs/elastic-certificates.p12
+
+xpack.security.transport.filter.allow: 172.20.200.13/22
+
+xpack.security.audit.enabled: true
+xpack:
+  security:
+    authc:
+      realms:
+        ldap1:
+          type: ldap
+          order: 0
+          url: "ldap://corp.yingzi.com:389"
+          bind_dn: "yz_escluster"
+          bind_password: "g6BQNsSSGyr"
+          user_search:
+            base_dn: "ou=corp,dc=corp,dc=yingzi,dc=com"
+            filter: "(sAMAccountName={0})"
+          group_search:
+            base_dn: "ou=corp,dc=corp,dc=yingzi,dc=com"
+          files:
+            role_mapping: "role_mapping.yml"
+          unmapped_groups_as_roles: false

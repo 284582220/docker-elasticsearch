@@ -1,0 +1,3 @@
+kibana_user:
+  - "CN=ldap_yztechops,OU=groups,OU=yingzi,OU=corp,DC=corp,DC=yingzi,DC=com"
+  - "CN=ldap_yztechdev,OU=groups,OU=yingzi,OU=corp,DC=corp,DC=yingzi,DC=com"
