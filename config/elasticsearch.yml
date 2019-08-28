@@ -31,14 +31,14 @@ xpack:
         ldap1:
           type: ldap
           order: 0
-          url: "ldap://corp.yingzi.com:389"
-          bind_dn: "yz_escluster"
+          url: "ldap://corp.ygj.com:389"
+          bind_dn: "testuser"
           bind_password: "g6BQNsSSGyr"
           user_search:
-            base_dn: "ou=corp,dc=corp,dc=yingzi,dc=com"
+            base_dn: "ou=corp,dc=corp,dc=ygj,dc=com"
             filter: "(sAMAccountName={0})"
           group_search:
-            base_dn: "ou=corp,dc=corp,dc=yingzi,dc=com"
+            base_dn: "ou=corp,dc=corp,dc=ygj,dc=com"
           files:
             role_mapping: "role_mapping.yml"
           unmapped_groups_as_roles: false
